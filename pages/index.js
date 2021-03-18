@@ -1,12 +1,21 @@
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const [ isPlaying, setIsPlaying ] = useState(true);
+  useEffect(() => {
+    const audio = new Audio('/alarm_tone.mp3');
+    if(isPlaying) {
+      // audio.play();
+
+    }
+  }, [])
   return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/spider_senses.png" />
       </Head>
 
       <main className={styles.main}>
