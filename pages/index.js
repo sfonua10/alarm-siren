@@ -13,10 +13,7 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [counter, setCounter] = useState(15);
   useEffect(() => {
-    const audio = new Audio('/alarm_tone.mp3');
-    if (isPlaying) {
-    audio.play();
-    }
+    playAlarm()
   }, [])
 
   useEffect(() => {
@@ -25,6 +22,12 @@ export default function Home() {
     }, 1000)
   }, [counter])
 
+  const playAlarm = () => {
+    const audio = new Audio('/alarm_tone.mp3');
+    if (isPlaying) {
+      audio.play();
+    }
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -44,7 +47,7 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
+          <a className={styles.card} onClick={playAlarm}>
             <h3>Started &rarr;</h3>
           </a>
           <a href="https://nextjs.org/docs" className={styles.card}>
